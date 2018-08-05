@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns ="http://www.w3.org/2001/XMLSchema"
+        xmlns:tns = "http://www.example.com/deposits"
+        targetNamespace="http://www.example.com/deposits"
+        elementFormDefault="qualified">
+
+    <element name="abstractDeposit" type="tns:AbstractDeposit" abstract="true"/>
+    <element name="timeLimitedDeposit" type="tns:TimeLimitedDeposit" substitutionGroup="tns:abstractDeposit"/>
+    <element name="timeUnlimitedDeposit" type="tns:TimeUnlimitedDeposit" substitutionGroup="tns:abstractDeposit"/>
+
+    <element name="deposits">
+        <complexType>
+            <sequence>
+                <element ref="tns:abstractDeposit" minOccurs="2" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+
+    <complexType name="AbstractDeposit">
+        <sequence>
+            <element name="accountId" type="int"/>
+            <element name="amount" type="double"/>
+            <element name="profit" type="int"/>
+        </sequence>
+        <attribute name="bankName" type="string" use="required" />
+        <attribute name="bankCountry" type="string"/>
+    </complexType>
+
+    <complexType name="TimeLimitedDeposit">
+        <complexContent>
+            <extension base="tns:AbstractDeposit">
+                <sequence>
+                    <element name="periodInYear" default="OneYear">
+                        <simpleType>
+                            <restriction base="string">
+                                <enumeration value="OneYear"/>
+                                <enumeration value="TwoYear"/>
+                                <enumeration value="ThreeYear"/>
+                                <enumeration value="FourYear"/>
+                                <enumeration value="FiveYear"/>
+                            </restriction>
+                        </simpleType>
+                    </element>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="TimeUnlimitedDeposit">
+        <complexContent>
+            <extension base="tns:AbstractDeposit">
+                <sequence>
+                    <element name="minimalAmount" type="double"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+</schema>

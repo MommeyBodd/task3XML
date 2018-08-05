@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deposits xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns="http://www.example.com/deposits"
+          xsi:schemaLocation="http://www.example.com/deposits  deposits.xsd">
+
+    <timeUnlimitedDeposit bankName = "NationalBankRepublicOfBelarus" bankCountry = "Belarus">
+        <accountId>562144</accountId>
+        <amount>2390.87</amount>
+        <profit>12</profit>
+        <minimalAmount>1000.00</minimalAmount>
+    </timeUnlimitedDeposit>
+
+    <timeLimitedDeposit bankName = "RZB" bankCountry = "Germany">
+        <accountId>456321</accountId>
+        <amount>5590.87</amount>
+        <profit>11</profit>
+        <periodInYear>TwoYear</periodInYear>
+    </timeLimitedDeposit>
+
+    <timeUnlimitedDeposit bankName = "NationalSwissBank" bankCountry = "Switzerland">
+        <accountId>748589</accountId>
+        <amount>1590.87</amount>
+        <profit>17</profit>
+        <minimalAmount>1500.00</minimalAmount>
+    </timeUnlimitedDeposit>
+
+    <timeUnlimitedDeposit bankName = "BelarusBank" bankCountry = "Belarus">
+        <accountId>346951</accountId>
+        <amount>3590.87</amount>
+        <profit>15</profit>
+        <minimalAmount>2000.00</minimalAmount>
+    </timeUnlimitedDeposit>
+
+    <timeLimitedDeposit bankName = "CentralBank" bankCountry = "Moscow">
+        <accountId>564985</accountId>
+        <amount>2590.87</amount>
+        <profit>10</profit>
+        <periodInYear>OneYear</periodInYear>
+    </timeLimitedDeposit>
+
+
+</deposits>
